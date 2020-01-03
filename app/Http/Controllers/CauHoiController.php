@@ -38,6 +38,23 @@ class CauHoiController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'noi_dung'=>'required',
+            'linh_vuc'=>'required',
+            'phuong_an_a'=>'required',
+            'phuong_an_b'=>'required',
+            'phuong_an_c'=>'required',
+            'phuong_an_d'=>'required',
+            'dap_an'=>'required'
+        ],[
+            'noi_dung.required'=>'Bạn chưa nhập nội dung của câu hỏi',
+            'linh_vuc.required'=>'Bạn chưa chọn lĩnh vực của câu hỏi',
+            'phuong_an_a.required'=>'Bạn chưa nhập đáp án A',
+            'phuong_an_b.required'=>'Bạn chưa nhập đáp án B',
+            'phuong_an_c.required'=>'Bạn chưa nhập đáp án C',
+            'phuong_an_d.required'=>'Bạn chưa nhập đáp án D',
+            'dap_an.required'=>'Bạn chưa nhập đáp án'
+        ]);
         $cauHoi = new CauHoi;
         $cauHoi->noi_dung = $request->noi_dung;
         $cauHoi->linh_vuc_id = $request->linh_vuc;
@@ -84,6 +101,25 @@ class CauHoiController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            'noi_dung'=>'required',
+            'linh_vuc'=>'required',
+            'phuong_an_a'=>'required',
+            'phuong_an_b'=>'required',
+            'phuong_an_c'=>'required',
+            'phuong_an_d'=>'required',
+            'dap_an'=>'required'
+        ],[
+            'noi_dung.required'=>'Bạn chưa nhập nội dung của câu hỏi',
+            'linh_vuc.required'=>'Bạn chưa chọn lĩnh vực của câu hỏi',
+            'phuong_an_a.required'=>'Bạn chưa nhập đáp án A',
+            'phuong_an_b.required'=>'Bạn chưa nhập đáp án B',
+            'phuong_an_c.required'=>'Bạn chưa nhập đáp án C',
+            'phuong_an_d.required'=>'Bạn chưa nhập đáp án D',
+            'dap_an.required'=>'Bạn chưa nhập đáp án'
+        ]);
+        
         $cauHoi = CauHoi::find($id);
         $cauHoi->noi_dung = $request->noi_dung;
         $cauHoi->linh_vuc_id = $request->linh_vuc;

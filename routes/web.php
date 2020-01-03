@@ -131,8 +131,4 @@ Route::get('mail/send','SendMailController@send');
 Route::get('/', function () {
 		return view('dang-nhap');
 	})->name('dang-nhap'); 
-
-
-
 });
-

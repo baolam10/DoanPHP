@@ -36,6 +36,18 @@ class GoiCreditController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'ten_goi'=>'required',
+            'credit'=>'required|numeric',
+            'so_tien'=>'required|numeric'
+        ],[
+            'ten_goi.required'=>'Bạn chưa nhập tên gói',
+            'credit.required'=>'Bạn chưa nhập credit',
+            'credit.numeric'=>'Số credit không hợp lệ',
+            'so_tien.required'=>'Bạn chưa nhập số tiền',
+            'so_tien.numeric'=>'Số tiền không hợp lệ'
+        ]);
+
         $goiCredit = new GoiCredit;
         $goiCredit->ten_goi = $request->ten_goi;
         $goiCredit->credit = $request->credit;
@@ -77,6 +89,20 @@ class GoiCreditController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'ten_goi'=>'required',
+            'credit'=>'required|numeric',
+            'so_tien'=>'required|numeric|max:100000000|min:0'
+        ],[
+            'ten_goi.required'=>'Bạn chưa nhập tên gói',
+            'credit.required'=>'Bạn chưa nhập credit',
+            'credit.numeric'=>'Số credit không hợp lệ',
+            'so_tien.min' => 'Bạn phải nhập số tiền trên 0',
+            'so_tien.max' => 'Bạn phải nhập số tiền nhỏ hơn 100000000',
+            'so_tien.required'=>'Bạn chưa nhập số tiền',
+            'so_tien.numeric'=>'Số tiền không hợp lệ'
+        ]);
+
         $goiCredit = GoiCredit::find($id);
         $goiCredit->ten_goi = $request->ten_goi;
         $goiCredit->credit = $request->credit;

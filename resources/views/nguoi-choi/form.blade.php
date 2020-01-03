@@ -24,7 +24,7 @@
                     @endif
                     <div class="form-group">
                         <label for="ten_dang_nhap">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" @if(isset($nguoichoi)) value="{{ $quantrivien->ten_dang_nhap }}" @endif>
+                        <input type="text" class="form-control" id="ten_dang_nhap" name="ten_dang_nhap" @if(isset($nguoichoi)) value="{{ $nguoichoi->ten_dang_nhap }}" @endif>
                     </div>
 
                     <div class="form-group">

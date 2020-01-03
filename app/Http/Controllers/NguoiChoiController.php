@@ -68,7 +68,7 @@ class NguoiChoiController extends Controller
     public function edit($id)
     {
         $nguoichoi = NguoiChoi::find($id);
-        return view('nguoi-choi.from',compact('nguoichoi'));
+        return view('nguoi-choi.form',compact('nguoichoi'));
     }
 
     /**
